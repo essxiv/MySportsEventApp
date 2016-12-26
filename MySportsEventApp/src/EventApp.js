@@ -18,25 +18,22 @@ class EventApp extends Component {
                                 city : 'Culver City'},
                      image : 'http://placekitten.com/200/400'}]
     };
+    this.handleEventEntered = this.handleEventEntered.bind(this);
   }  
-  handleListInput(newEvent) {
+  handleEventEntered(newEvent) {
     this.state.eventList.push(newEvent);
     this.setState({
-    // eventList : this.state.eventList.concat(newEvent)
-    eventList : this.state.eventList
+      // eventList : this.state.eventList.concat(newEvent)
+      eventList : this.state.eventList
+      //change css to remove modal and ungray body
     })
   }
 
   render() {
     return (
       <div>
-        
-
-       
-
+        <EventInput handleEventEntered={this.handleEventEntered}/>
         <EventList eventList={this.state.eventList}/>
-
-       
       </div>
     );
     }
